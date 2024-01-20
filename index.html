@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- box icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Store Bike Competicion</title>
+</head>
+<body class="body-login">
+    <form action="">
+        <h1 class="title">Login</h1>
+        <label>
+            <i class="ri-user-line"></i>
+            <input type="text" id="username" placeholder="Username">
+        </label>
+        <label>
+            <i class="ri-lock-line"></i>
+            <input type="password" id="password" placeholder="Password">
+        </label>
+        <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+        
+        <button id="button" class="btn" onclick="authenticate()">Iniciar sesión</button>
+        <a href="#" class="link">Registrarse</a>
+    </form>
+    <div id="error-message" style="color: red;"></div>
+
+    <script src="./JS/login.js"></script>
+</body>
+</html>

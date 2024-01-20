@@ -1,0 +1,59 @@
+.body-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(3, 6, 71, 0.7);
+
+    .title{
+        color: #252525;
+        font-size: 35px;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    label{
+        margin-bottom: 35px;
+
+        .ri-user-line,
+        .ri-lock-line{
+            font-size: 20px;
+            color: #1d4ed8;
+            margin-right: 10px;
+        }
+        input{
+            outline: none;
+            border: none;
+            color: #252525;
+            border-bottom: solid 1px #2563eb;
+            padding: 0 5px;
+            font-size: 18px;
+            &::placeholder{
+                color: rgba(37, 37, 37, 0.5);
+            }
+        }
+    }
+    .link{
+        color: #252525;
+        margin-bottom: 15px;
+    }
+    #button{
+        padding: 1rem;
+        color: #fff;
+        background-color: #1d4ed8;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover{
+            background-color: #2563eb;
+        }
+    }
+}
