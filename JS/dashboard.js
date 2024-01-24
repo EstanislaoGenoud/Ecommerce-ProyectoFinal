@@ -53,14 +53,6 @@ document.addEventListener('DOMContentLoaded', function(){
         
         cart.style.display = (cart.style.display === 'none' || cart.style.display === '') ? 'block' : 'none';
     });
-    // let rutaImagen='../Assets/fondo.jpeg';
-    // let fondo=document.getElementById('fondo');
-    
-    // fondo.style.backgroundImage=`url('${rutaImagen}')`;
-    // fondo.style.backgroundSize='cover';
-    // fondo.style.backgroundPosition='center';
-    // fondo.style.backgroundRepeat='no-repeat';
-    
 });
 
 
@@ -109,6 +101,7 @@ function addToCard(product, price) {
     } else {
         cardData.push({
             title: product.title,
+            imageSrc: product.imageSrc,
             quantity: 1,
             price: price,
         });
