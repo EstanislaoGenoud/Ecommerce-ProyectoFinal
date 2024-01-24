@@ -47,11 +47,10 @@ document.addEventListener('DOMContentLoaded', function(){
         loadCards(cardContainer, cardData)
     }
     let cartIcon=document.getElementById('cartIcon');
-    let cart=document.getElementById('cart');
 
     cartIcon.addEventListener('click', function(){
+        window.location.href='carrito.html';
         
-        cart.style.display = (cart.style.display === 'none' || cart.style.display === '') ? 'block' : 'none';
     });
 });
 
@@ -109,38 +108,41 @@ function addToCard(product, price) {
     updateCartUI();
 }
 
-function updateCartUI(){
-    let cartItemsContainer=document.getElementById('cartItems');
-    let cartTotalElement=document.getElementById('cartTotal');
-    let total= 0;
+function updateCartUI() {
+    let cartItemsContainer = document.getElementById('cartItems');
+    let cartTotalElement = document.getElementById('cartTotal');
+    let total = 0;
 
-    cartItemsContainer.innerHTML= '';
+    cartItemsContainer.innerHTML = '';
 
-    cardData.forEach(product =>{
-        let cartItem=document.createElement('li');
+    cardData.forEach(product => {
+        let cartItem = document.createElement('li');
 
         if (product.imageSrc) {
-            let productImage=document.createElement('img');
-            productImage.src=product.imageSrc;
-            productImage.alt=product.title;
+            let productImage = document.createElement('img');
+            productImage.src = product.imageSrc;
+            productImage.alt = product.title;
             cartItem.appendChild(productImage);
         }
 
-        let productName=document.createElement('span');
-        let productPrice=document.createElement('span');
-        
-        productName.innerText=product.title;
-        productPrice.innerText= `- Precio: $${product.price.toFixed(2)}`;
-        
+        let productName = document.createElement('span');
+        let productPrice = document.createElement('span');
+        let productQuantity = document.createElement('span');
+
+        productName.innerText = product.title;
+        productPrice.innerText = ` - Precio: $${product.price.toFixed(2)}`;
+        productQuantity.innerText = ` - Cantidad: ${product.quantity}`;
+
         cartItem.appendChild(productName);
         cartItem.appendChild(productPrice);
+        cartItem.appendChild(productQuantity);
 
-        cartItem.innerText += ` - Cantidad: ${product.quantity}`;
         cartItemsContainer.appendChild(cartItem);
 
         total += product.price * product.quantity;
     });
-    cartTotalElement.innerText=total.toFixed(2);
+
+    cartTotalElement.innerText = total.toFixed(2);
 }
 
 function checkout(){

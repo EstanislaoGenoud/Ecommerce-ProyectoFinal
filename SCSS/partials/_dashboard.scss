@@ -122,13 +122,18 @@ h1{
 }
 
 #fondo{
-    
     width: 100%;
     height: 100vh;
     background-image: url(../Assets/fondo.jpeg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.main-dashboard{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
 }
 
 
