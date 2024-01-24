@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     let addProductButton=document.getElementById('addProductButton');
     if(addProductButton){
-        addProductButton.addEventListener('click', addProduct);
+        addProductButton.addEventListener('click', function(){
+            addProductCart(0);
+        });
     }
     let storedCardData=localStorage.getItem("cardData");
     if(storedCardData){
@@ -53,7 +55,13 @@ document.addEventListener('DOMContentLoaded', function(){
         
     });
 });
+function addProductCart(productIndex){
+    let product =products[productIndex];
 
+    addToCard(product, product.price);
+    localStorage.setItem('cardData', JSON.stringify(cardData));
+    updateCartUI();
+}
 
 function logout(){
     localStorage.removeItem("username");
