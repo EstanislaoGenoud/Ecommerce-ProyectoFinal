@@ -37,12 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
             { title: "Bontrager Specter", imageSrc: "../Assets/Specter.jpeg", price:210481 },
         ]);
     }
-    let addProductButton=document.getElementById('addProductButton');
-    if(addProductButton){
-        addProductButton.addEventListener('click', function(){
-            addProductCart(0);
-        });
-    }
+    // 
     let storedCardData=localStorage.getItem("cardData");
     if(storedCardData){
         cardData = JSON.parse(storedCardData);
@@ -54,14 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
         window.location.href='carrito.html';
         
     });
-});
-function addProductCart(productIndex){
-    let product =products[productIndex];
-
-    addToCard(product, product.price);
-    localStorage.setItem('cardData', JSON.stringify(cardData));
-    updateCartUI();
-}
+})
 
 function logout(){
     localStorage.removeItem("username");
@@ -113,38 +101,49 @@ function addToCard(product, price) {
             price: price,
         });
     }
+    localStorage.setItem('cardData', JSON.stringify(cardData));
+
     updateCartUI();
 }
 
 function updateCartUI() {
-    let cartItemsContainer = document.getElementById('cartItems');
+    let cartItemsContainer = document.getElementById('cartItemsContainer');
     let cartTotalElement = document.getElementById('cartTotal');
     let total = 0;
 
     cartItemsContainer.innerHTML = '';
 
+    
     cardData.forEach(product => {
-        let cartItem = document.createElement('li');
+        let cartItem = document.createElement('tr');
 
-        if (product.imageSrc) {
-            let productImage = document.createElement('img');
-            productImage.src = product.imageSrc;
-            productImage.alt = product.title;
-            cartItem.appendChild(productImage);
-        }
+        // Imagen
+        let imageCell = document.createElement('td');
+        let productImage = document.createElement('img');
+        productImage.src = product.imageSrc;
+        productImage.alt = product.title;
 
-        let productName = document.createElement('span');
-        let productPrice = document.createElement('span');
-        let productQuantity = document.createElement('span');
+        productImage.classList.add('imagen-carrito');
 
-        productName.innerText = product.title;
-        productPrice.innerText = ` - Precio: $${product.price.toFixed(2)}`;
-        productQuantity.innerText = ` - Cantidad: ${product.quantity}`;
+        imageCell.appendChild(productImage);
+        cartItem.appendChild(imageCell);
 
-        cartItem.appendChild(productName);
-        cartItem.appendChild(productPrice);
-        cartItem.appendChild(productQuantity);
+        // Cantidad
+        let quantityCell = document.createElement('td');
+        quantityCell.innerText = product.quantity;
+        cartItem.appendChild(quantityCell);
 
+        // Nombre del producto
+        let nameCell = document.createElement('td');
+        nameCell.innerText = product.title;
+        cartItem.appendChild(nameCell);
+
+        // Precio
+        let priceCell = document.createElement('td');
+        priceCell.innerText = `$${(product.price * product.quantity).toFixed(2)}`;
+        cartItem.appendChild(priceCell);
+
+        
         cartItemsContainer.appendChild(cartItem);
 
         total += product.price * product.quantity;
@@ -152,7 +151,6 @@ function updateCartUI() {
 
     cartTotalElement.innerText = total.toFixed(2);
 }
-
 function checkout(){
     alert('Compra realizada con éxito');
 
