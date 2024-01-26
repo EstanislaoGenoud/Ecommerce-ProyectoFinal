@@ -158,7 +158,3 @@ function checkout(){
     updateCartUI();
     document.getElementById('cart').style.display= 'none';
 }
-
-
-
-
