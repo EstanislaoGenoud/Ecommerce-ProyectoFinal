@@ -8,28 +8,53 @@
 
 
 // <!-- JS -->
-// <!-- function addProduct() {
-//             let productNameInput = document.getElementById("productName");
+// function addProduct() {
+        //     let productNameInput = document.getElementById("productName");
     
-//         let productName = productNameInput.value.trim();
+        // let productName = productNameInput.value.trim();
     
-//             console.log(productName);
+        //     console.log(productName);
 
-//             if (productName) {
-//                 let newProduct = {
-//                     title: productName,
-//                     imageSrc: "",
-//                 };
-//                 cardData.push(newProduct);
+        //     if (productName) {
+        //         let newProduct = {
+        //             title: productName,
+        //             imageSrc: "",
+        //         };
+        //         cardData.push(newProduct);
 
             
-//                 localStorage.setItem("cardData", JSON.stringify(cardData));
+        //         localStorage.setItem("cardData", JSON.stringify(cardData));
 
-//                 productNameInput.value = "";
+        //         productNameInput.value = "";
 
 
-//                 return;
-//             } else {
-//                 alert("Por favor, ingresa el nombre del producto.");
-//             }
-//         } -->
+        //         return;
+        //     } else {
+        //         alert("Por favor, ingresa el nombre del producto.");
+            // }
+        // } 
+
+
+
+
+
+// PARTE DEL DOM//
+// let addProductButton=document.getElementById('addProductButton');
+    // if(addProductButton){
+    //     addProductButton.addEventListener('click', function(){
+    //         addProductCart(0);
+    //     });
+    // }
+
+// FIN DEL DOM//
+
+// function addProductCart(productIndex){
+//     let product =products[productIndex];
+
+//     addToCard(product, product.price);
+//     localStorage.setItem('cardData', JSON.stringify(cardData));
+//     updateCartUI();
+// }
+
+
+

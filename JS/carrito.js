@@ -1,12 +1,8 @@
-function addProductToCart(productIndex) {
-    
-    let product = products[productIndex];
+document.addEventListener('DOMContentLoaded', function(){
+    let storedCardData=localStorage.getItem('cardData');
 
-    
-    addToCart(product, product.price);
-
-    
-    localStorage.setItem("cardData", JSON.stringify(cardData));
-
-    updateCartUI();
-}
+    if(storedCardData){
+        cardData= JSON.parse(storedCardData);
+        updateCartUI();
+    }
+})
