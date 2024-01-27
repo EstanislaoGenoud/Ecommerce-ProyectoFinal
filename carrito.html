@@ -39,24 +39,24 @@
           <h1 class="title-articulos">Carrito de Compras</h1>
       </div>
       <div class="container-c">
-          <table class="container-table">
-              <tbody>
-                  <tr>
-                      <td id="im">Imagen</td>
-                      <td id="ca">Cantidad</td>
-                      <td id="ar">Articulo</td>
-                      <td id="imp">Importe</td>
-                      <td id="bo">Borrar</td>
-                  </tr>
-                  <tr class="carrito-item" id="cartItemsContainer">
-                    
-                  </tr>
-                  <tr class="carrito-total">
-                    <td class="total">Total:</td>
-                    <td class="total" id="cartTotal"></td>
-                </tr>
-              </tbody>
-          </table>
+        <table class="container-table">
+          <thead>
+              <tr>
+                  <th>Imagen</th>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Total</th>
+              </tr>
+          </thead>
+
+          <tbody id="modalListProducts">
+
+          </tbody>
+      
+      </table>
+      <hr>
+      <p class="text-danger"> Total $ <span id="cartSum"></span></p>
           <div class="botones-c">
               <a href="./dashboard.html" class="btn2">Seguir Comprando</a>
               <button class="btn-comprar btn">Comprar</button>
