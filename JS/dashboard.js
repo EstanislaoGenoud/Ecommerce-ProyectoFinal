@@ -37,12 +37,11 @@ document.addEventListener('DOMContentLoaded', function(){
             { title: "Bontrager Specter", imageSrc: "../Assets/Specter.jpeg", price:210481 },
         ]);
     }
-    // 
-    // let storedCardData=localStorage.getItem("cardData");
-    // if(storedCardData){
-    //     cardData = JSON.parse(storedCardData);
-    //     loadCards(cardContainer, cardData)
-    // }
+    
+    let storedCardData=localStorage.getItem("cardData");
+    if(storedCardData){
+        cardData = JSON.parse(storedCardData);
+    }
     let cartIcon=document.getElementById('cartIcon');
 
     cartIcon.addEventListener('click', function(){
