@@ -22,7 +22,7 @@
     border-collapse: collapse;
 }
 
-.container-table td {
+.container-table th {
     padding: 10px;
     text-align: center;
 }
@@ -51,12 +51,12 @@
 }
 
 .texto {
-    td {
+    th {
         opacity: 0.4;
     }
 }
 
-.texto td:first-child {
+.texto th:first-child {
     grid-column: span 5;
 }
 
