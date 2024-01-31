@@ -16,5 +16,17 @@ h1{
     flex-wrap: wrap;
     text-align: center;
 }
-
+.cerrar{
+    position: absolute;
+    right: 0;
+}
+main {
+    min-height: 80vh;
+    width: 70%;
+    margin: 0 auto;
+}
+.ri-sort-number-asc{
+    width: 60px;
+    height: 60px;
+}
 
