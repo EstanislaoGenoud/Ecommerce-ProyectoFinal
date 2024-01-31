@@ -6,6 +6,8 @@ const listProducts=document.querySelector('#listProducts');
 const modalListProducts=document.querySelector('#modalListProducts');
 const btnClose=document.querySelector('#btnClose');
 const btnGuardar=document.querySelector('#btnGuardar');
+const btnOrder=document.querySelector('#btnOrder');
+const selectCategory=document.querySelector('#selectCategory');
 
 document.addEventListener('DOMContentLoaded', function(){
     let loginButton=document.getElementById('loginButton');
@@ -35,6 +37,17 @@ btnClose.addEventListener('click', ()=>{
     modal.hide();
 });
 
-const renderProducts=()=>{
-    
+const renderProducts=(list)=>{
+    listProducts.innerHTML='';
+    list.forEach(product => {
+        listProducts.innerHTML += //html
+        `<div class="card-per">
+        <h2>${product.title}</h2>
+        <img src="${product.imageSrc}" alt="${product.title}">
+        <p>$ ${product.price}</p>
+        <button class="btn-per"><i class="fa-solid fa-cart-shopping"></i>Agregar</button>
+        </div>`
+    });
+
 }
+renderProducts(products);
