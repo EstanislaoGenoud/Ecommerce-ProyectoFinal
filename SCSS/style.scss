@@ -11,10 +11,8 @@
     text-decoration: none;
     font-family: sans-serif;
 }
-body{
-    background-color: #27272a;
-}
-.btn{
+
+.btn-per{
     background-color: #1d4ed8;
             color: white;
             padding: 10px;
@@ -24,6 +22,7 @@ body{
         cursor: pointer;
         &:hover{
             background-color: #1e40af;
+            color: white;
             }
 }
 
