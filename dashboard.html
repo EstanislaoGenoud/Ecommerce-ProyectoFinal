@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="./CSS/style.css">
 
     <!-- JS -->
+    <script src="./JS/data.js" defer></script>
+    <script src="./JS/Cart.js" defer></script>
     <script src="./JS/dashboard.js" defer></script>
-    <script src="./JS/data.js"></script>
     <title>Store Bike Competicion</title>
 </head>
 <body>
@@ -51,20 +52,22 @@
     <div id="fondo">
     </div>
     <main class="container mt-2">
-      <div class="col-md-1">
-        <button id="btnOrder" type="button" class="btn btn-primary">
-          <img src="./Assets/sort-number-asc.svg" alt="">
-        </button>
-      </div>
-      <div class="col-md-4">
+      
+      <div class="col-md-4 ordenadores">
+        <label for="">Categoria</label>
         <select id="selectCategory" class="form-control">
           <option>-</option>
           <option value="Ruta">Ruta</option>
           <option value="mountainbike">Mountain Bike</option>
           <option value="triatlon">Triatlon</option>
-          <option value="casco">Cascos</option>
+          <option value="casco">Casco</option>
 
         </select>
+      </div>
+      <div class="col-md-1 ordenadores">
+        <button id="btnOrder" type="button" class="btn btn-primary">
+          <img src="./Assets/sort-number-asc.svg" alt="">
+        </button>
       </div>
       <div id="listProducts" class="cardContainer">
         
@@ -83,8 +86,8 @@
                       <thead>
                           <tr>
                               <th>Imagen</th>
-                              <th>Cantidad</th>
                               <th>Producto</th>
+                              <th>Cantidad</th>
                               <th>Precio</th>
                               <th>Total</th>
                           </tr>
@@ -96,7 +99,7 @@
                   
                   </table>
                   <hr>
-                  <p class="text-danger"> Total $ <span id="cartSum"></span></p>
+                  <p class="text-danger personal" > Total $ <span id="cartSum"></span></p>
               </div>
               <div class="modal-footer">
                   <button id="btnClose" type="button" class="btn btn-secondary">Cerrar</button>

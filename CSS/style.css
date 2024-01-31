@@ -169,7 +169,7 @@ main {
 
 .card-per {
   width: 350px;
-  border: 1px solid #ddd;
+  border: 2px solid #333;
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -189,6 +189,17 @@ main {
   font-size: 1.2rem;
   font-weight: 600;
   padding-top: 60px;
+}
+.card-per .card-icon {
+  width: 20px;
+}
+
+.ordenadores {
+  display: inline-block;
+}
+
+.personal {
+  text-align: right;
 }
 
 /*# sourceMappingURL=style.css.map */
