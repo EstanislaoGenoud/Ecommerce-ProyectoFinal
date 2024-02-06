@@ -17,9 +17,9 @@ const products = [
     {id: 21, title: "S-works SHIV TT PRO DISC", imageSrc: "../Assets/SHIV-TT-SW-DISC.png", price: 7822395,category: 'triatlon'},
 
     // BMX
-    {id: 22, title: "S-works SHIV TT PRO DISC", imageSrc: "../Assets/SHIV-TT-SW-DISC.png", price: 7822395,category: 'triatlon'},
-    {id: 23, title: "S-works SHIV TT PRO DISC", imageSrc: "../Assets/SHIV-TT-SW-DISC.png", price: 7822395,category: 'triatlon'},
-    {id: 24, title: "S-works SHIV TT PRO DISC", imageSrc: "../Assets/SHIV-TT-SW-DISC.png", price: 7822395,category: 'triatlon'},
+    // {id: 22, title: "", imageSrc: "../Assets/", price: ,category: ''},
+    // {id: 23, title: "", imageSrc: "../Assets/", price: ,category: ''},
+    // {id: 24, title: "", imageSrc: "../Assets/", price: ,category: ''},
 
     // Cascos
     {id: 8, title: "S-Works Prevail 3", imageSrc: "../Assets/Prevail3.jpeg", price:330.563, category: 'casco'},
