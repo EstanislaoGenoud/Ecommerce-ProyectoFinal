@@ -51,6 +51,23 @@ btnModalCarrito.addEventListener('click', function(){
 btnClose.addEventListener('click', ()=>{
     modal.hide();
 });
+btnGuardar.addEventListener('click', ()=>{
+    Swal.fire({
+        title: "Compra Realizada con éxito!",
+        text: "",
+        icon: "success"
+    });
+
+    cart.cart=[];
+
+    localStorage.setItem('Cart', JSON.stringify(cart.cart));
+
+    renderCart(cart.getProducts());
+
+    cartCount.innerText= cart.getCount();
+
+    modal.hide();
+})
 
 
 const addToCart = (e) =>{
