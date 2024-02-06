@@ -1,13 +1,14 @@
 const welcomeMessage='Bienvenido'
 const modal= new bootstrap.Modal('#modalCarrito', {});
 const btnModalCarrito= document.querySelector('#btnModalCarrito');
+const btnClose=document.querySelector('#btnClose');
+const btnGuardar=document.querySelector('#btnGuardar');
+const btnOrder=document.querySelector('#btnOrder');
+const btnOrderMayor=document.querySelector('#btnOrderMayor');
 const cartCount=document.querySelector('#cartCount');
 const cartSum=document.querySelector('#cartSum');
 const listProducts=document.querySelector('#listProducts');
 const modalListProducts=document.querySelector('#modalListProducts');
-const btnClose=document.querySelector('#btnClose');
-const btnGuardar=document.querySelector('#btnGuardar');
-const btnOrder=document.querySelector('#btnOrder');
 const selectCategory=document.querySelector('#selectCategory');
 const listCart= JSON.parse(localStorage.getItem('cart')) || [];
 const cart= new Cart(listCart);
@@ -89,7 +90,20 @@ btnOrder.addEventListener('click',()=>{
         return 0
     })
     renderProducts(products)
-    btnOrder.setAttribute('disabled', true)
+    
+});
+btnOrderMayor.addEventListener('click', ()=>{
+    products.sort((a,b) =>{
+        if(a.price < b.price){
+            return 1
+        }
+        if(a.price > b.price){
+            return -1
+        }
+        return 0
+    });
+    renderProducts(products);
+    
 });
 
 

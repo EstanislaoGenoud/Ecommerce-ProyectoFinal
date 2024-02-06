@@ -25,6 +25,13 @@
             color: white;
             }
 }
+#btnOrderMayor{
+    position: relative;
+    right: 40px;
+    img{
+        width: 24px;
+    }
+}
 
 @import "./partials/navbar";
 @import "./partials/dashboard";
