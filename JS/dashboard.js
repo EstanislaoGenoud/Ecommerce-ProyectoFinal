@@ -31,7 +31,14 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 cartCount.innerText=cart.getCount();
 
-
+const mostrarError =(texto)=>{
+    Swal.fire({
+        title: "Upps",
+        text: texto,
+        icon: "error",
+        confirmButtonText: 'Aceptar'
+    });
+}
 
 
 function logout(){
