@@ -8,8 +8,22 @@ class Cart{
 
     addToCart({id, imageSrc, title, price}){
         const index=this.cart.findIndex(product =>product.id == id);
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Agregado al carrito"
+        });
         if(index == -1){
-            console.log('no esta en el carrito');
         this.cart.push({id, title, imageSrc, price, quantity: 1});
 
         }else{
@@ -33,6 +47,17 @@ class Cart{
     getSum(){
         const sum=this.cart.reduce((acum, product) =>{return acum + (product.quantity * product.price)}, 0)
         return sum;
+    }
+    removeProductByID(productId){
+        const index = this.cart.findIndex(product => product.id == productId);
+        if(index !== -1){
+            this.cart.splice(index, 1);
+
+            renderCart(this.cart);
+            localStorage.setItem('Cart', JSON.stringify(this.cart));
+        }else{
+            mostrarError('Este producto no existe en el carrito');
+        }
     }
 
 }

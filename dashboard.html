@@ -13,7 +13,6 @@
     <!--Sweet Alert JS  -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- JS -->
-    <script src="./JS/data.js" defer></script>
     <script src="./JS/Cart.js" defer></script>
     <script src="./JS/dashboard.js" defer></script>
     <title>Store Bike Competicion</title>
@@ -87,13 +86,13 @@
 
     <div id="modalCarrito" class="modal fade" tabindex="-1">
       <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content cartPer">
               <div class="modal-header">
                   <h5 class="modal-title"><i class="fa-solid fa-cart-shopping"></i> Carrito </h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                  <table class="table table-hover">
+                  <table class="table table-hover ">
                       <thead>
                           <tr>
                               <th>Imagen</th>
@@ -101,6 +100,7 @@
                               <th>Cantidad</th>
                               <th>Precio</th>
                               <th>Total</th>
+                              <th>Borrar</th>
                           </tr>
                       </thead>
 
