@@ -2,6 +2,7 @@ const welcomeMessage='Bienvenido'
 const modal= new bootstrap.Modal('#modalCarrito', {});
 const btnModalCarrito= document.querySelector('#btnModalCarrito');
 const btnClose=document.querySelector('#btnClose');
+const btnLogout=document.querySelector('#btnLogout');
 const btnGuardar=document.querySelector('#btnGuardar');
 const btnOrder=document.querySelector('#btnOrder');
 const btnOrderMayor=document.querySelector('#btnOrderMayor');
@@ -47,6 +48,9 @@ fetch ('js/data.json')
             localStorage.removeItem("password");
             window.location.href="index.html";
         }
+        btnLogout.addEventListener('click' , ()=>{
+            logout()
+        });
         btnModalCarrito.addEventListener('click', function(){
             const list=cart.getProducts();
             renderCart(list);
@@ -146,8 +150,5 @@ fetch ('js/data.json')
     })
     .catch(error =>{
         mostrarError();
-
-
-
-    });
+});
 
