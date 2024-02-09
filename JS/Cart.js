@@ -48,16 +48,4 @@ class Cart{
         const sum=this.cart.reduce((acum, product) =>{return acum + (product.quantity * product.price)}, 0)
         return sum;
     }
-    removeProductByID(productId){
-        const index = this.cart.findIndex(product => product.id == productId);
-        if(index !== -1){
-            this.cart.splice(index, 1);
-
-            renderCart(this.cart);
-            localStorage.setItem('Cart', JSON.stringify(this.cart));
-        }else{
-            mostrarError('Este producto no existe en el carrito');
-        }
-    }
-
 }

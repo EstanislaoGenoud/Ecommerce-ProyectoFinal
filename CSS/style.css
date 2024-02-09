@@ -195,16 +195,29 @@ main {
 .card-per img {
   width: 150px;
 }
+.card-per #slrTwo {
+  margin-top: 10px;
+}
+.card-per #slrOne,
+.card-per #slrLtd {
+  margin-top: 53px;
+}
+.card-per #caliber {
+  margin-top: 60px;
+}
+.card-per #epic {
+  margin-top: 70px;
+}
 .card-per p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 .card-per .card-details {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100px; /* Altura fija para los detalles de la tarjeta */
+  height: 100px;
 }
 .card-per .btn-container {
   display: flex;
@@ -212,7 +225,7 @@ main {
   justify-content: center;
 }
 .card-per .btnAddCart {
-  margin-top: auto; /* Alinea los botones en la parte inferior del contenedor */
+  margin-top: auto;
 }
 
 .ordenadores {

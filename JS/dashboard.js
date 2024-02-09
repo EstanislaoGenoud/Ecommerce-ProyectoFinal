@@ -131,9 +131,9 @@ fetch ('js/data.json')
             listProducts.innerHTML='';
             list.forEach(product => {
                 listProducts.innerHTML += //html
-                `<div class="card-per">
+                `<div class="card-per ${product.img}">
                 <h2>${product.title}</h2>
-                <img src="${product.imageSrc}" alt="${product.title}" id="${product.img}">
+                <img src="${product.imageSrc}" alt="${product.title}" id="${product.img}" class="img-responsive">
                 <div class="card-details">
                 <p>$ ${product.price}</p>
                 </div>
@@ -147,6 +147,7 @@ fetch ('js/data.json')
                 btn.addEventListener('click', addToCart);
             });
         }
+        
         const renderCart=(list)=>{
             modalListProducts.innerHTML='';
             list.forEach(product =>{
@@ -157,18 +158,9 @@ fetch ('js/data.json')
                     <td>${product.quantity}</td>
                     <td>${product.price}</td>
                     <td>${product.price * product.quantity}</td>
-                    <td><button class="btnRemoveProduct" data-id="${product.id}"><i class="ri-delete-bin-6-line"></i></button></td>
                 </tr>`
             });
-            btnRemoveProductElements.forEach(btn=>{
-                btn.addEventListener('click', function(){
-                    const productId= this.getAttribute('data-id');
-                    const removed= cart.removeProductByID(productId);
-                    if(removed){
-                        renderCart(cart.getProducts());
-                    }
-                })
-            })
+            
 
         }
         renderCategories(categories);
@@ -176,7 +168,6 @@ fetch ('js/data.json')
         renderProducts(products);
     })
     .catch(error => {
-        // Llamar a mostrarError dentro del bloque catch
         mostrarError("Error al cargar los datos");
     });
 

@@ -51,17 +51,32 @@ main {
     img {
         width: 150px;
     }
+    #slrTwo{
+        margin-top: 10px;
+    }
+    
+    #slrOne,
+    #slrLtd{
+        margin-top: 53px;
+    }
+    #caliber{
+        margin-top: 60px;
+    }
+    #epic{
+        margin-top: 70px;
+    }
+
 
     p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 600;
-        margin-top: 20px;
+        margin-top: 60px;
     }
     .card-details {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100px; /* Altura fija para los detalles de la tarjeta */
+        height: 100px;
     }
 
     .btn-container {
@@ -69,16 +84,15 @@ main {
         align-items: flex-end;
         justify-content: center;
         
+        
     }
 
     .btnAddCart {
-        margin-top: auto; /* Alinea los botones en la parte inferior del contenedor */
+        margin-top: auto;
     }
 }
 .ordenadores{
     display: inline-block;
-    
-    
 }
 .personal{
     text-align: right;
