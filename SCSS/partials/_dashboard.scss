@@ -29,31 +29,50 @@ main {
     width: 60px;
     height: 60px;
 }
-.card-per{
+.card-per {
     width: 350px;
     border: 2px solid #333;
     border-radius: 8px;
     padding: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
-        &:hover{
-            transform: scale(1.05);
-        }
 
-    h2{
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    h2 {
         font-size: 1.2rem;
         color: #333;
+        font-weight: 600;
+        margin-bottom: 10px;
     }
-    img{
+
+    img {
         width: 150px;
     }
-    p{
+
+    p {
         font-size: 1.2rem;
         font-weight: 600;
-        padding-top: 60px;
+        margin-top: 20px;
     }
-    .card-icon{
-        width: 20px;
+    .card-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100px; /* Altura fija para los detalles de la tarjeta */
+    }
+
+    .btn-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        
+    }
+
+    .btnAddCart {
+        margin-top: auto; /* Alinea los botones en la parte inferior del contenedor */
     }
 }
 .ordenadores{

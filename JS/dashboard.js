@@ -15,34 +15,35 @@ const selectCategory=document.querySelector('#selectCategory');
 const listCart= JSON.parse(localStorage.getItem('cart')) || [];
 const cart= new Cart(listCart);
 
+document.addEventListener('DOMContentLoaded', function(){
+    let loginButton=document.getElementById('loginButton');
+    if(loginButton){
+        loginButton.addEventListener('click', login);
+    }
+    let storedUsername=localStorage.getItem('username');
+    if(storedUsername){
+        let welcome=document.getElementById('welcome');
+        welcome.style.display="block"
+        welcome.innerText=`${welcomeMessage} ${storedUsername}`;
+    }
+    
+});
+const mostrarError =(texto)=>{
+    Swal.fire({
+        title: "Upps",
+        text: texto,
+        icon: "error",
+        confirmButtonText: 'Aceptar'
+    });
+}
 fetch ('js/data.json')
     .then(response => response.json())
     .then(data =>{
         const products = data.products;
         const categories = data.category;
 
-        document.addEventListener('DOMContentLoaded', function(){
-            let loginButton=document.getElementById('loginButton');
-            if(loginButton){
-                loginButton.addEventListener('click', login);
-            }
-            let storedUsername=localStorage.getItem('username');
-            if(storedUsername){
-                let welcome=document.getElementById('welcome');
-                welcome.style.display="block"
-                welcome.innerText=`${welcomeMessage} ${storedUsername}`;
-            }
-            
-        });
         cartCount.innerText=cart.getCount();
-        const mostrarError =(texto)=>{
-            Swal.fire({
-                title: "Upps",
-                text: texto,
-                icon: "error",
-                confirmButtonText: 'Aceptar'
-            });
-        }
+        
         function logout(){
             localStorage.removeItem("username");
             localStorage.removeItem("password");
@@ -72,6 +73,20 @@ fetch ('js/data.json')
             cartCount.innerText= cart.getCount();
             modal.hide();
         })
+        selectCategory.addEventListener('change', (e)=>{
+            const category = selectCategory.value;
+            console.log('Categoría', category);
+            if(category=== '-'){
+                renderProducts(products);
+            }else{
+                filtroCategories(category);
+            }
+        });
+        const filtroCategories= (id_category)=>{
+            const newList= products.filter( ( product)=> product.id_category == id_category);
+            renderProducts(newList);
+            
+        }
         const addToCart = (e) =>{
             const id= e.target.id;
             const product= products.find(item => item.id == id);
@@ -106,15 +121,25 @@ fetch ('js/data.json')
             renderProducts(products);
             
         });
+        const renderCategories = (listCategory) => {
+            selectCategory.innerHTML = '<option>-</option>';
+            listCategory.forEach(category => {
+                selectCategory.innerHTML += `<option value="${category.id}">${category.name}</option>`;
+            });
+        }
         const renderProducts=(list)=>{
             listProducts.innerHTML='';
             list.forEach(product => {
                 listProducts.innerHTML += //html
                 `<div class="card-per">
                 <h2>${product.title}</h2>
-                <img src="${product.imageSrc}" alt="${product.title}">
+                <img src="${product.imageSrc}" alt="${product.title}" id="${product.img}">
+                <div class="card-details">
                 <p>$ ${product.price}</p>
+                </div>
+                <div class="btn-container">
                 <button id="${product.id}" class="btn-per btnAddCart">Agregar</button>
+                </div>
                 </div>`
             });
             const btns = document.querySelectorAll('.btnAddCart');
@@ -146,9 +171,12 @@ fetch ('js/data.json')
             })
 
         }
+        renderCategories(categories);
+
         renderProducts(products);
     })
-    .catch(error =>{
-        mostrarError();
-});
+    .catch(error => {
+        // Llamar a mostrarError dentro del bloque catch
+        mostrarError("Error al cargar los datos");
+    });
 
