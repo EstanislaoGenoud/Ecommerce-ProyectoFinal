@@ -6,23 +6,9 @@ class Cart{
 
 
 
-    addToCart({id, imageSrc, title, price}){
+    addToCart({id, imageSrc, title, price}, e){
+        console.log('addToCart se ha llamado correctamente.');
         const index=this.cart.findIndex(product =>product.id == id);
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-        Toast.fire({
-            icon: "success",
-            title: "Agregado al carrito"
-        });
         if(index == -1){
         this.cart.push({id, title, imageSrc, price, quantity: 1});
 
@@ -32,6 +18,19 @@ class Cart{
         }
 
         localStorage.setItem('Cart', JSON.stringify(this.cart));
+        cartCount.innerText = this.getCount();
+        cartSum.innerText = formatPrice(this.getSum());
+        Toastify({
+            close: true,
+            text: "Producto Agregado",
+            gravity: 'bottom',
+            duration: 3000,
+            style: {
+                background: "linear-gradient(to right, #076186, #09AAEC)",
+            },
+        }).showToast();
+    
+        e.stopPropagation(); 
     }
 
 

@@ -37,10 +37,11 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
 
+    
     &:hover {
         transform: scale(1.05);
     }
-
+    
     h2 {
         font-size: 1.2rem;
         color: #333;
@@ -51,6 +52,11 @@ main {
     img {
         width: 150px;
     }
+    #sl7,
+    #sport,
+    #sl7Pro{
+        margin-top: 35px;
+    }
     #slrTwo{
         margin-top: 10px;
     }
@@ -59,12 +65,47 @@ main {
     #slrLtd{
         margin-top: 53px;
     }
+    #slrTwo{
+        margin-top: 50px;
+    }
     #caliber{
         margin-top: 60px;
     }
     #epic{
-        margin-top: 70px;
+        margin-top: 67px;
     }
+    #tcr,
+    #propel{
+        margin-top: 37px;
+    }
+    #tMTwo{
+        margin-top: 55px;
+    }
+    #shiv{
+        margin-top: 45px;
+    }
+    #concept{
+        margin-top: 47px;
+    }
+    #gw{
+        margin-top: 35px;
+    }
+    #gt,
+    #gtTwo{
+        margin-top: 20px;
+    }
+    #prevail{
+        margin-top: 23px;
+    }
+    #evade,
+    #propero{
+        margin-top: 20px;
+    }
+    #aeroHead{
+        margin-top: 19px;
+    }
+    
+    
 
 
     p {

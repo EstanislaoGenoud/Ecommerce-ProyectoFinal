@@ -195,6 +195,11 @@ main {
 .card-per img {
   width: 150px;
 }
+.card-per #sl7,
+.card-per #sport,
+.card-per #sl7Pro {
+  margin-top: 35px;
+}
 .card-per #slrTwo {
   margin-top: 10px;
 }
@@ -202,11 +207,44 @@ main {
 .card-per #slrLtd {
   margin-top: 53px;
 }
+.card-per #slrTwo {
+  margin-top: 50px;
+}
 .card-per #caliber {
   margin-top: 60px;
 }
 .card-per #epic {
-  margin-top: 70px;
+  margin-top: 67px;
+}
+.card-per #tcr,
+.card-per #propel {
+  margin-top: 37px;
+}
+.card-per #tMTwo {
+  margin-top: 55px;
+}
+.card-per #shiv {
+  margin-top: 45px;
+}
+.card-per #concept {
+  margin-top: 47px;
+}
+.card-per #gw {
+  margin-top: 35px;
+}
+.card-per #gt,
+.card-per #gtTwo {
+  margin-top: 20px;
+}
+.card-per #prevail {
+  margin-top: 23px;
+}
+.card-per #evade,
+.card-per #propero {
+  margin-top: 20px;
+}
+.card-per #aeroHead {
+  margin-top: 19px;
 }
 .card-per p {
   font-size: 1.1rem;

@@ -55,7 +55,7 @@ fetch ('js/data.json')
         btnModalCarrito.addEventListener('click', function(){
             const list=cart.getProducts();
             renderCart(list);
-            cartSum.innerText=cart.getSum();
+            cartSum.innerText = formatPrice(cart.getSum());
             modal.show();
         });
         btnClose.addEventListener('click', ()=>{
@@ -92,7 +92,7 @@ fetch ('js/data.json')
             const product= products.find(item => item.id == id);
             
             console.table(product);
-            cart.addToCart(product);
+            cart.addToCart(product, e);
             cartCount.innerText= cart.getCount();
         }
         btnOrder.addEventListener('click',()=>{
@@ -121,26 +121,30 @@ fetch ('js/data.json')
             renderProducts(products);
             
         });
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
         const renderCategories = (listCategory) => {
             selectCategory.innerHTML = '<option>-</option>';
             listCategory.forEach(category => {
                 selectCategory.innerHTML += `<option value="${category.id}">${category.name}</option>`;
             });
         }
-        const renderProducts=(list)=>{
-            listProducts.innerHTML='';
+        const renderProducts = (list) => {
+            listProducts.innerHTML = '';
             list.forEach(product => {
+                const formattedPrice = formatPrice(product.price); // Define formattedPrice aquí
                 listProducts.innerHTML += //html
-                `<div class="card-per ${product.img}">
-                <h2>${product.title}</h2>
-                <img src="${product.imageSrc}" alt="${product.title}" id="${product.img}" class="img-responsive">
-                <div class="card-details">
-                <p>$ ${product.price}</p>
-                </div>
-                <div class="btn-container">
-                <button id="${product.id}" class="btn-per btnAddCart">Agregar</button>
-                </div>
-                </div>`
+                    `<div class="card-per ${product.img}">
+                        <h2>${product.title}</h2>
+                        <img src="${product.imageSrc}" alt="${product.title}" id="${product.img}" class="img-responsive">
+                        <div class="card-details">
+                            <p>$ ${formattedPrice}</p>
+                        </div>
+                        <div class="btn-container">
+                            <button id="${product.id}" class="btn-per btnAddCart">Agregar</button>
+                        </div>
+                    </div>`;
             });
             const btns = document.querySelectorAll('.btnAddCart');
             btns.forEach(btn => {
@@ -151,14 +155,17 @@ fetch ('js/data.json')
         const renderCart=(list)=>{
             modalListProducts.innerHTML='';
             list.forEach(product =>{
+                const formattedPrice = formatPrice(product.price);
+                const totalPrice = formatPrice(product.price * product.quantity);
                 modalListProducts.innerHTML += //html
                 `<tr>
                     <td><img src="${product.imageSrc}" alt="${product.title}"style="width: 50px;" /></td>
                     <td>${product.title}</td>
                     <td>${product.quantity}</td>
-                    <td>${product.price}</td>
-                    <td>${product.price * product.quantity}</td>
+                    <td>$ ${formattedPrice}</td>
+                    <td>$ ${totalPrice}</td>
                 </tr>`
+                
             });
             
 
@@ -168,6 +175,5 @@ fetch ('js/data.json')
         renderProducts(products);
     })
     .catch(error => {
-        mostrarError("Error al cargar los datos");
+        mostrarError("Error al cargar los datos: " + error.message);
     });
-
