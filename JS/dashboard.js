@@ -82,6 +82,9 @@ fetch ('js/data.json')
                 filtroCategories(category);
             }
         });
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
         const filtroCategories= (id_category)=>{
             const newList= products.filter( ( product)=> product.id_category == id_category);
             renderProducts(newList);
@@ -92,7 +95,7 @@ fetch ('js/data.json')
             const product= products.find(item => item.id == id);
             
             console.table(product);
-            cart.addToCart(product, e);
+            cart.addToCart(product);
             cartCount.innerText= cart.getCount();
         }
         btnOrder.addEventListener('click',()=>{
@@ -121,9 +124,7 @@ fetch ('js/data.json')
             renderProducts(products);
             
         });
-        function formatPrice(price) {
-            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
+        
         const renderCategories = (listCategory) => {
             selectCategory.innerHTML = '<option>-</option>';
             listCategory.forEach(category => {

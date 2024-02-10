@@ -1,3 +1,7 @@
+function formatPrice(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 class Cart{
     constructor(list= []){
         this.cart=list;
@@ -6,7 +10,7 @@ class Cart{
 
 
 
-    addToCart({id, imageSrc, title, price}, e){
+    addToCart({id, imageSrc, title, price}){
         console.log('addToCart se ha llamado correctamente.');
         const index=this.cart.findIndex(product =>product.id == id);
         if(index == -1){
@@ -29,8 +33,6 @@ class Cart{
                 background: "linear-gradient(to right, #076186, #09AAEC)",
             },
         }).showToast();
-    
-        e.stopPropagation(); 
     }
 
 
