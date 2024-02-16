@@ -36,7 +36,7 @@ const mostrarError =(texto)=>{
         confirmButtonText: 'Aceptar'
     });
 }
-fetch ('js/data.json')
+fetch ('JS/data.JSON')
     .then(response => response.json())
     .then(data =>{
         const products = data.products;
