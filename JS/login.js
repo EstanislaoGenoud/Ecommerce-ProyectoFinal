@@ -1,5 +1,5 @@
-const username = document.getElementById('username');
-const password = document.getElementById('password');
+const username = document.querySelector('#username');
+const password = document.querySelector('#password');
 const button = document.getElementById('button');
 
 
